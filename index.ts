@@ -273,4 +273,27 @@ export class FlowgateSDK {
             system: SystemProgram.programId,
         }).rpc();
     }
+
+    public async createPriceContainer() {
+        let createPriceContainer = new Transaction();
+        let priceContainer = Keypair.generate();
+        createPriceContainer.add(
+            await this.program.account.priceContainer.createInstruction(priceContainer)
+        );
+
+        createPriceContainer.add(
+            await this.program.methods.createPriceContainer().accounts({
+                priceContainer: priceContainer.publicKey
+            }).instruction()
+        );
+
+        let [signedTxs] = await signTransactionsWithWallet(
+            this.connection, 
+            this.wallet as Wallet,
+            [{transaction: createPriceContainer, signers: [priceContainer]}]
+        );
+
+
+        return await sendSignedTransaction(this.connection, signedTxs, 1);
+    }
 }

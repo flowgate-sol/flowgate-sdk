@@ -139,6 +139,17 @@ export type IDL = {
         ]
       },
       {
+        "name": "createPriceContainer",
+        "accounts": [
+          {
+            "name": "priceContainer",
+            "isMut": true,
+            "isSigner": false
+          }
+        ],
+        "args": []
+      },
+      {
         "name": "closeAccount",
         "accounts": [
           {
@@ -546,6 +557,18 @@ export type IDL = {
                   10
                 ]
               }
+            }
+          ]
+        }
+      },
+      {
+        "name": "priceContainer",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "price",
+              "type": "u128"
             }
           ]
         }
@@ -851,6 +874,17 @@ export type IDL = {
         ]
       },
       {
+        "name": "createPriceContainer",
+        "accounts": [
+          {
+            "name": "priceContainer",
+            "isMut": true,
+            "isSigner": false
+          }
+        ],
+        "args": []
+      },
+      {
         "name": "closeAccount",
         "accounts": [
           {
@@ -1258,6 +1292,18 @@ export type IDL = {
                   10
                 ]
               }
+            }
+          ]
+        }
+      },
+      {
+        "name": "priceContainer",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "price",
+              "type": "u128"
             }
           ]
         }
